@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Google: Mind the Gap Initiative — Strategic White Paper</title>
   <meta name="description" content="Official Google Strategic White Paper on the Mind the Gap Initiative: Expanding Computer Science and AI Opportunity for Secondary Students." />
+
+  <!-- Immediately synchronize theme from localStorage before render to prevent light mode flash -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('google_mtg_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='%231A73E8'/></svg>" />
@@ -19,21 +27,21 @@
 </head>
 <body class="paper-body">
 
-  <!-- Print and Floating Control Toolbar -->
+  <!-- Print and Floating Control Toolbar (Bottom Right) -->
   <aside class="paper-floating-toolbar" aria-label="White paper actions">
     <a href="index.html" class="toolbar-btn" title="Back to Interactive Portal">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
       <span>Interactive Portal</span>
     </a>
-    <button id="paper-theme-toggle" class="toolbar-btn" title="Toggle Reader Mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/></svg>
+    <button id="paper-theme-toggle" class="toolbar-btn" title="Toggle Reader Theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <span>Theme</span>
     </button>
-    <button id="print-paper-btn" class="toolbar-btn btn-highlight" title="Save as PDF or Print">
+    <a href="Google Mind the Gap - AI-Enhanced White Paper.pdf" download="Google Mind the Gap - AI-Enhanced White Paper.pdf" class="toolbar-btn btn-highlight" title="Download Original Executive PDF">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-      <span>Print / PDF</span>
-    </button>
+      <span>Download PDF</span>
+    </a>
   </aside>
 
   <div class="paper-layout container">
@@ -64,7 +72,9 @@
 
         <div class="sidebar-pdf-card">
           <p><strong>Executive Deliverable:</strong> Formatted for C-suite, educators, and university stakeholders.</p>
-          <button class="btn btn-secondary btn-sm" onclick="window.print()">Print Document</button>
+          <a href="Google Mind the Gap - AI-Enhanced White Paper.pdf" download="Google Mind the Gap - AI-Enhanced White Paper.pdf" class="btn btn-secondary btn-sm" style="width: 100%; text-align: center;">
+            Download Original PDF
+          </a>
         </div>
       </div>
     </nav>
@@ -98,8 +108,8 @@
             <span class="meta-value">BUS 301 Business Communications</span>
           </div>
           <div class="meta-item">
-            <span class="meta-label">Key Shortlink</span>
-            <span class="meta-value"><a href="https://g.co/mindthegap" target="_blank" rel="noopener">g.co/mindthegap</a></span>
+            <span class="meta-label">Official Portal</span>
+            <span class="meta-value"><a href="https://sites.research.google/gr/mindthegap/" target="_blank" rel="noopener">sites.research.google/gr/mindthegap</a></span>
           </div>
         </div>
 
@@ -334,7 +344,7 @@
             <p>
               Register your school or student cohort for upcoming in-person or virtual Mind the Gap sessions. Receive free curriculum guides and classroom toolkits.
             </p>
-            <a href="index.html#stakeholders" class="inline-cta-btn">Enroll School Cohort &rarr;</a>
+            <a href="index.html#sec-how-to-get-involved" class="inline-cta-btn">Enroll School Cohort &rarr;</a>
           </div>
 
           <div class="persona-card">
@@ -342,7 +352,7 @@
             <p>
               Collaborate with Google to host regional STEM days, sponsor community transit to Google offices, or integrate our open-source curriculum into your local youth programs.
             </p>
-            <a href="index.html#stakeholders" class="inline-cta-btn">Join Partnership Coalition &rarr;</a>
+            <a href="index.html#sec-how-to-get-involved" class="inline-cta-btn">Join Partnership Coalition &rarr;</a>
           </div>
 
           <div class="persona-card">
@@ -355,7 +365,7 @@
         </div>
 
         <div class="official-portal-banner">
-          <span>Official Portal: <strong>g.co/mindthegap</strong> (or research.google/mindthegap)</span>
+          <span>Official Portal: <a href="https://sites.research.google/gr/mindthegap/" target="_blank" rel="noopener"><strong>sites.research.google/gr/mindthegap</strong></a></span>
         </div>
       </section>
 
@@ -464,16 +474,11 @@
     // Theme toggle for white paper reader
     const themeBtn = document.getElementById('paper-theme-toggle');
     themeBtn?.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
       const next = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', next);
-    });
-
-    // Print button
-    document.getElementById('print-paper-btn')?.addEventListener('click', () => {
-      window.print();
+      localStorage.setItem('google_mtg_theme', next);
     });
   </script>
 </body>
 </html>
-

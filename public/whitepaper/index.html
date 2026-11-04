@@ -6,6 +6,14 @@
   <title>Google Mind the Gap — Building the Next Generation of Technologists</title>
   <meta name="description" content="Google's Mind the Gap initiative brings hands-on computer science & AI literacy to secondary school students worldwide—closing opportunity divides and demystifying engineering." />
   
+  <!-- Synchronize theme from localStorage immediately before render -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('google_mtg_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><circle cx='12' cy='12' r='10' fill='%231A73E8'/></svg>" />
 
@@ -21,10 +29,10 @@
   <div class="ambient-glow glow-1" aria-hidden="true"></div>
   <div class="ambient-glow glow-2" aria-hidden="true"></div>
 
-  <!-- Frosted Sticky Navigation Bar (Apple Style) -->
+  <!-- Frosted Sticky Navigation Bar (Apple Style with Fluid Motion Blue Pill Slider) -->
   <header class="navbar-wrapper">
     <nav class="navbar" aria-label="Main Navigation">
-      <a href="#overview" class="brand-container" aria-label="Google Mind the Gap Homepage">
+      <a href="#overview" class="brand-container" aria-label="Google Mind the Gap Homepage" id="nav-brand-container">
         <svg class="google-logo" viewBox="0 0 74 24" fill="currentColor" aria-hidden="true">
           <circle cx="6" cy="12" r="5" fill="#4285F4" />
           <circle cx="20" cy="12" r="5" fill="#EA4335" />
@@ -33,27 +41,26 @@
         </svg>
         <div class="brand-text">
           <span class="brand-title">Mind the Gap</span>
-          <span class="brand-badge">White Paper &bull; Google</span>
+          <span class="brand-badge" id="brand-badge">White Paper</span>
         </div>
       </a>
 
-      <div class="nav-links">
-        <a href="#sec-executive-summary" class="nav-link">Summary</a>
-        <a href="#sec-opportunity-gap" class="nav-link">The Gap</a>
-        <a href="#sec-origins-thesis" class="nav-link">Origins</a>
-        <a href="#sec-program-architecture" class="nav-link">Architecture</a>
-        <a href="#sec-coalition" class="nav-link">Leadership</a>
-        <a href="#sec-strategic-impact" class="nav-link">Impact</a>
-        <a href="#sec-how-to-get-involved" class="nav-link">Get Involved</a>
-        <a href="#sec-works-cited" class="nav-link">Works Cited</a>
+      <!-- Fluid motion sliding blue circle/pill indicator -->
+      <div class="nav-links-wrapper">
+        <div class="nav-slider-pill" id="nav-slider-pill" aria-hidden="true"></div>
+        <div class="nav-links" id="nav-links-list">
+          <a href="#sec-executive-summary" class="nav-link" data-nav-target="sec-executive-summary">Summary</a>
+          <a href="#sec-opportunity-gap" class="nav-link" data-nav-target="sec-opportunity-gap">The Gap</a>
+          <a href="#sec-origins-thesis" class="nav-link" data-nav-target="sec-origins-thesis">Origins</a>
+          <a href="#sec-program-architecture" class="nav-link" data-nav-target="sec-program-architecture">Architecture</a>
+          <a href="#sec-coalition" class="nav-link" data-nav-target="sec-coalition">Leadership</a>
+          <a href="#sec-strategic-impact" class="nav-link" data-nav-target="sec-strategic-impact">Impact</a>
+          <a href="#sec-how-to-get-involved" class="nav-link" data-nav-target="sec-how-to-get-involved">Get Involved</a>
+          <a href="#sec-works-cited" class="nav-link" data-nav-target="sec-works-cited">Works Cited</a>
+        </div>
       </div>
 
       <div class="nav-actions">
-        <button id="theme-toggle" class="btn-icon" aria-label="Toggle light or dark theme" title="Toggle Theme">
-          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-        </button>
-
         <a href="whitepaper.html" class="btn btn-secondary nav-paper-btn">
           <span>Read Full Paper</span>
         </a>
@@ -65,6 +72,15 @@
       </div>
     </nav>
   </header>
+
+  <!-- Floating Dark Mode / Light Mode Widget at Bottom Right -->
+  <aside class="floating-theme-toggle" aria-label="Theme Switcher">
+    <button id="theme-toggle" class="floating-theme-btn" aria-label="Toggle dark or light theme" title="Toggle Theme (Dark / Light)">
+      <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <span class="theme-text">Theme</span>
+    </button>
+  </aside>
 
   <main>
     <!-- HERO SECTION (Apple Cinematic Scale + Anthropic Warmth) -->
@@ -92,17 +108,17 @@
             <svg viewBox="0 0 20 20" width="18" height="18" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
           </button>
           
-          <button class="btn btn-glass btn-lg" id="hero-download-pdf-btn">
+          <a href="Google Mind the Gap - AI-Enhanced White Paper.pdf" download="Google Mind the Gap - AI-Enhanced White Paper.pdf" class="btn btn-glass btn-lg" id="hero-download-pdf-btn">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span>Download White Paper (PDF)</span>
-          </button>
+          </a>
 
           <a href="whitepaper.html" class="btn btn-text">
             <span>Explore 8-Section Executive Report &rarr;</span>
           </a>
         </div>
 
-        <!-- Bento Hero Interactive Preview (Meta / Apple Hardware Polish) -->
+        <!-- Bento Hero Interactive Preview -->
         <div class="hero-bento-preview">
           <div class="preview-chrome">
             <div class="chrome-dots">
@@ -112,7 +128,7 @@
             </div>
             <div class="chrome-address">
               <span class="chrome-lock">🔒</span>
-              <span class="chrome-url">g.co/mindthegap &bull; executive paper portal</span>
+              <a href="https://sites.research.google/gr/mindthegap/" target="_blank" rel="noopener" class="chrome-url" style="color: inherit;">sites.research.google/gr/mindthegap &bull; portal</a>
             </div>
             <div class="chrome-status">
               <span class="pulse-indicator"></span> 100,000+ Students &bull; 17 Countries
@@ -174,7 +190,7 @@
       </div>
     </section>
 
-    <!-- METRICS COUNTER GRID (Specification Requirement #2) -->
+    <!-- METRICS COUNTER GRID -->
     <section class="metrics-section" id="metrics">
       <div class="container">
         <div class="section-header text-center">
@@ -233,9 +249,7 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         SECTION 1 OF PAPER: EXECUTIVE SUMMARY
-         ==================================================================== -->
+    <!-- SECTION 1: EXECUTIVE SUMMARY -->
     <section class="paper-embed-section" id="sec-executive-summary">
       <div class="container">
         <div class="paper-section-card">
@@ -297,10 +311,7 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         SECTION 2 OF PAPER: WHY THE INITIATIVE? (THE OPPORTUNITY GAP IN TECH)
-         Specification Requirement #3: Problem vs. Solution Interactive Split
-         ==================================================================== -->
+    <!-- SECTION 2: WHY THE INITIATIVE? (THE OPPORTUNITY GAP IN TECH) -->
     <section class="split-section" id="sec-opportunity-gap">
       <div class="container">
         <div class="section-header text-center">
@@ -312,7 +323,6 @@
         </div>
 
         <div class="interactive-split-wrapper">
-          <!-- Split Controls -->
           <div class="split-toggle-bar">
             <button class="split-tab-btn active" data-split-mode="side-by-side">Side-by-Side Comparison</button>
             <button class="split-tab-btn" data-split-mode="problem-only">The Opportunity Void (Problem)</button>
@@ -420,9 +430,7 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         SECTION 3 OF PAPER: WHAT IS MIND THE GAP? (ORIGINS & THE 2-HOUR THESIS)
-         ==================================================================== -->
+    <!-- SECTION 3: WHAT IS MIND THE GAP? (ORIGINS & THE 2-HOUR THESIS) -->
     <section class="paper-embed-section" id="sec-origins-thesis">
       <div class="container">
         <div class="paper-section-card">
@@ -502,10 +510,7 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         SECTION 4 OF PAPER: PROGRAM ARCHITECTURE & WHAT IT ENTAILS
-         Specification Requirement #4: Stepper / Carousel & Hands-on Lab
-         ==================================================================== -->
+    <!-- SECTION 4: PROGRAM ARCHITECTURE & WHAT IT ENTAILS -->
     <section class="architecture-section" id="sec-program-architecture">
       <div class="container">
         <div class="section-header text-center">
@@ -517,7 +522,6 @@
         </div>
 
         <div class="stepper-wrapper">
-          <!-- Stepper Navigation -->
           <div class="stepper-nav" role="tablist">
             <button class="step-btn active" role="tab" aria-selected="true" data-step="0">
               <span class="step-num">01</span>
@@ -549,7 +553,6 @@
             </button>
           </div>
 
-          <!-- Stepper Content Cards (Carousel) -->
           <div class="stepper-display">
             <!-- Step 1 Content -->
             <div class="step-slide active" data-step-index="0">
@@ -728,7 +731,6 @@
             </div>
           </div>
 
-          <!-- Stepper Bottom Controls -->
           <div class="stepper-controls">
             <button class="btn-step-prev" aria-label="Previous Step" id="prev-step-btn">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
@@ -749,7 +751,7 @@
       </div>
     </section>
 
-    <!-- INTERACTIVE HELLOTECH GENAI SIMULATOR (Hands-on Pillar 3 Component) -->
+    <!-- INTERACTIVE HELLOTECH GENAI SIMULATOR -->
     <section class="interactive-lab-section" id="interactive-lab">
       <div class="container">
         <div class="section-header text-center">
@@ -843,9 +845,7 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         SECTION 5 OF PAPER: WHO IS BEHIND THE INITIATIVE?
-         ==================================================================== -->
+    <!-- SECTION 5: WHO IS BEHIND THE INITIATIVE? -->
     <section class="paper-embed-section" id="sec-coalition">
       <div class="container">
         <div class="paper-section-card">
@@ -908,9 +908,7 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         SECTION 6 OF PAPER: STRATEGIC IMPACT & WHY GET INVOLVED
-         ==================================================================== -->
+    <!-- SECTION 6: STRATEGIC IMPACT & WHY GET INVOLVED -->
     <section class="paper-embed-section" id="sec-strategic-impact">
       <div class="container">
         <div class="paper-section-card">
@@ -966,10 +964,7 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         SECTION 7 OF PAPER: HOW TO GET INVOLVED (TAILORED STAKEHOLDER PORTALS)
-         Specification Requirement #5: Stakeholder Action Cards (Persona Tabs)
-         ==================================================================== -->
+    <!-- SECTION 7: HOW TO GET INVOLVED -->
     <section class="stakeholders-section" id="sec-how-to-get-involved">
       <div class="container">
         <div class="section-header text-center">
@@ -981,7 +976,6 @@
         </div>
 
         <div class="persona-tabs-container">
-          <!-- Persona Selector Tabs -->
           <div class="persona-tab-nav" role="tablist">
             <button class="persona-nav-btn active" role="tab" aria-selected="true" data-persona="educators">
               <span class="persona-tab-icon">🏫</span>
@@ -997,7 +991,6 @@
             </button>
           </div>
 
-          <!-- Persona Content Panels -->
           <div class="persona-panel-wrapper">
             <!-- Panel 1: Educators & Schools -->
             <div class="persona-panel active" id="panel-educators">
@@ -1155,16 +1148,13 @@
           </div>
 
           <div class="official-shortlink-card">
-            <span>Official Portal Shortlink: <a href="https://g.co/mindthegap" target="_blank" rel="noopener"><strong>g.co/mindthegap</strong></a> (or <a href="https://research.google" target="_blank" rel="noopener">research.google/mindthegap</a>)</span>
+            <span>Official Portal Link: <a href="https://sites.research.google/gr/mindthegap/" target="_blank" rel="noopener"><strong>sites.research.google/gr/mindthegap</strong></a> (Google Research)</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ====================================================================
-         SECTION 8 OF PAPER: WORKS CITED
-         Specification Requirement #6: Footer & Executive Citations
-         ==================================================================== -->
+    <!-- SECTION 8: WORKS CITED -->
     <section class="paper-embed-section" id="sec-works-cited">
       <div class="container">
         <div class="paper-section-card">
@@ -1239,7 +1229,7 @@
       </div>
     </section>
 
-    <!-- FREQUENTLY ASKED QUESTIONS (Apple Clean Styling) -->
+    <!-- FAQ SECTION -->
     <section class="faq-section" id="faq">
       <div class="container">
         <div class="section-header text-center">
@@ -1303,7 +1293,7 @@
     </section>
   </main>
 
-  <!-- FOOTER & EXECUTIVE CITATIONS (Specification Requirement #6) -->
+  <!-- FOOTER & EXECUTIVE CITATIONS -->
   <footer class="site-footer">
     <div class="container footer-container">
       <div class="footer-top">
@@ -1319,7 +1309,7 @@
             Organizing the world's information and expanding access to computer science education since 2008.
           </p>
           <div class="footer-official-link">
-            Official Portal: <a href="https://g.co/mindthegap" target="_blank" rel="noopener noreferrer">g.co/mindthegap</a>
+            Official Portal: <a href="https://sites.research.google/gr/mindthegap/" target="_blank" rel="noopener noreferrer">sites.research.google/gr/mindthegap</a>
           </div>
         </div>
 
@@ -1368,7 +1358,7 @@
         <div class="footer-bottom-links">
           <a href="whitepaper.html">Dedicated Reader Mode</a>
           <span class="sep">&bull;</span>
-          <a href="#" id="footer-print-btn">Print White Paper</a>
+          <a href="Google Mind the Gap - AI-Enhanced White Paper.pdf" download="Google Mind the Gap - AI-Enhanced White Paper.pdf" id="footer-print-btn">Download Original White Paper (PDF)</a>
           <span class="sep">&bull;</span>
           <a href="#overview">Back to Top &uarr;</a>
         </div>
@@ -1411,22 +1401,25 @@
         </div>
 
         <div class="form-row">
+          <!-- Requirement 3: Cohort size without word "cohort" in options -->
           <div class="form-group">
-            <label for="cohort-size">Estimated Cohort Size *</label>
+            <label for="cohort-size">Student Count *</label>
             <select id="cohort-size" required>
               <option value="">Select student count...</option>
-              <option value="15-25">Small Cohort (15–25 students)</option>
-              <option value="25-50">Standard Class Cohort (25–50 students)</option>
-              <option value="50-100">Grade Level Cohort (50–100 students)</option>
-              <option value="virtual-large">Virtual District Session (100+ students)</option>
+              <option value="15-25">Small (15–25 students)</option>
+              <option value="25-50">Standard Class (25–50 students)</option>
+              <option value="50-100">Grade Level (50–100 students)</option>
+              <option value="virtual-large">District / Virtual (100+ students)</option>
             </select>
           </div>
+          <!-- Requirement 2: Preferred format with exact options fitting without horizontal scroll -->
           <div class="form-group">
             <label for="visit-format">Preferred Format *</label>
             <select id="visit-format" required>
-              <option value="in-person">In-Person Campus Visit (Nearest Google Hub)</option>
-              <option value="hybrid">Interactive Virtual Expedition (Google Meet)</option>
-              <option value="transit-assist">In-Person + Requesting Transit Stipend</option>
+              <option value="">Select format...</option>
+              <option value="campus-visit">Campus Visit</option>
+              <option value="virtual">Virtual</option>
+              <option value="transport-request">Transport Request Inperson</option>
             </select>
           </div>
         </div>

@@ -7,8 +7,8 @@
  * - HelloTech GenAI Prompt Sandbox Simulator
  * - Stakeholder Persona Tab Switcher
  * - Modal Booking Flows & Toast Notifications
- * - Theme Switcher (Dark / Light)
- * - PDF / Print Triggers
+ * - Theme Switcher (Dark / Light) fixed at bottom right
+ * - Fluid Motion Sliding Blue Nav Pill Indicator
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
-      const currentTheme = htmlRoot.getAttribute('data-theme');
+      const currentTheme = htmlRoot.getAttribute('data-theme') || 'dark';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       htmlRoot.setAttribute('data-theme', newTheme);
       localStorage.setItem('google_mtg_theme', newTheme);
@@ -34,7 +34,102 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 2. Animated Metrics Counters (IntersectionObserver)
+  // 2. Fluid Motion Sliding Blue Pill Nav Indicator (Requirement 4)
+  // =========================================================================
+  const sliderPill = document.getElementById('nav-slider-pill');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const navWrapper = document.querySelector('.nav-links-wrapper');
+  const brandBadge = document.getElementById('brand-badge');
+
+  const updateNavIndicator = (activeElement) => {
+    if (!sliderPill || !navWrapper || !activeElement) return;
+
+    const wrapperRect = navWrapper.getBoundingClientRect();
+    const elemRect = activeElement.getBoundingClientRect();
+
+    const leftOffset = elemRect.left - wrapperRect.left;
+    const topOffset = elemRect.top - wrapperRect.top;
+    const width = elemRect.width;
+    const height = elemRect.height;
+
+    sliderPill.style.opacity = '1';
+    sliderPill.style.width = `${width}px`;
+    sliderPill.style.height = `${height}px`;
+    sliderPill.style.transform = `translate3d(${leftOffset}px, ${topOffset}px, 0)`;
+  };
+
+  // Nav link click event
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      navLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      updateNavIndicator(link);
+    });
+  });
+
+  // Track sections on scroll to slide the blue indicator fluidly
+  const sectionIds = [
+    'sec-executive-summary',
+    'sec-opportunity-gap',
+    'sec-origins-thesis',
+    'sec-program-architecture',
+    'sec-coalition',
+    'sec-strategic-impact',
+    'sec-how-to-get-involved',
+    'sec-works-cited'
+  ];
+
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  const handleScrollNav = () => {
+    const scrollPos = window.scrollY + 140;
+
+    // If near the top (hero), hide or move to the first link or brand badge
+    if (window.scrollY < 200) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      if (brandBadge && sliderPill && navWrapper) {
+        // Fluid transition around brand badge or gracefully dim
+        const badgeRect = brandBadge.getBoundingClientRect();
+        const wrapperRect = navWrapper.getBoundingClientRect();
+        const leftOffset = badgeRect.left - wrapperRect.left;
+        const topOffset = badgeRect.top - wrapperRect.top;
+        sliderPill.style.opacity = '0.9';
+        sliderPill.style.width = `${badgeRect.width}px`;
+        sliderPill.style.height = `${badgeRect.height}px`;
+        sliderPill.style.transform = `translate3d(${leftOffset}px, ${topOffset}px, 0)`;
+      } else if (sliderPill) {
+        sliderPill.style.opacity = '0';
+      }
+      return;
+    }
+
+    let activeFound = false;
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const section = sections[i];
+      if (section && section.offsetTop <= scrollPos) {
+        const activeLink = document.querySelector(`.nav-link[data-nav-target="${section.id}"]`);
+        if (activeLink) {
+          navLinks.forEach(l => l.classList.remove('active'));
+          activeLink.classList.add('active');
+          updateNavIndicator(activeLink);
+          activeFound = true;
+          break;
+        }
+      }
+    }
+
+    if (!activeFound && navLinks.length > 0 && window.scrollY >= 200) {
+      navLinks[0].classList.add('active');
+      updateNavIndicator(navLinks[0]);
+    }
+  };
+
+  window.addEventListener('scroll', handleScrollNav, { passive: true });
+  window.addEventListener('resize', handleScrollNav, { passive: true });
+  setTimeout(handleScrollNav, 200);
+
+  // =========================================================================
+  // 3. Animated Metrics Counters (IntersectionObserver)
   // =========================================================================
   const counters = document.querySelectorAll('.counter');
   let countersAnimated = false;
@@ -49,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
         
-        // Easing function (easeOutQuad)
+        // Easing function (easeOutCubic)
         const easeOutProgress = 1 - Math.pow(1 - progress, 3);
         const currentValue = Math.floor(easeOutProgress * target);
 
@@ -85,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 3. Problem vs Solution Interactive Toggle
+  // 4. Problem vs Solution Interactive Toggle
   // =========================================================================
   const splitTabs = document.querySelectorAll('.split-tab-btn');
   const splitGrid = document.getElementById('split-grid');
@@ -115,7 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // =========================================================================
-  // 4. Program Architecture Stepper & Carousel
+  // 5. Program Architecture Stepper & Carousel
   // =========================================================================
   const stepButtons = document.querySelectorAll('.step-btn');
   const stepSlides = document.querySelectorAll('.step-slide');
@@ -128,19 +223,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const setStep = (index) => {
     currentStep = (index + totalSteps) % totalSteps;
 
-    // Update buttons
     stepButtons.forEach((btn, idx) => {
       const isActive = idx === currentStep;
       btn.classList.toggle('active', isActive);
       btn.setAttribute('aria-selected', isActive);
     });
 
-    // Update slides
     stepSlides.forEach((slide, idx) => {
       slide.classList.toggle('active', idx === currentStep);
     });
 
-    // Update dots
     stepDots.forEach((dot, idx) => {
       dot.classList.toggle('active', idx === currentStep);
     });
@@ -168,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================================
-  // 5. Interactive HelloTech GenAI Sandbox Simulator
+  // 6. Interactive HelloTech GenAI Sandbox Simulator
   // =========================================================================
   const promptInput = document.getElementById('prompt-input');
   const runSimBtn = document.getElementById('run-simulation-btn');
@@ -217,7 +309,6 @@ Architecture Blueprint:
     }
   };
 
-  // Set default prompt
   if (promptInput) {
     promptInput.value = presets.community.prompt;
   }
@@ -273,7 +364,7 @@ Architecture Blueprint:
   }
 
   // =========================================================================
-  // 6. Stakeholder Persona Tabs Switcher
+  // 7. Stakeholder Persona Tabs Switcher
   // =========================================================================
   const personaButtons = document.querySelectorAll('.persona-nav-btn');
   const personaPanels = document.querySelectorAll('.persona-panel');
@@ -296,7 +387,7 @@ Architecture Blueprint:
   });
 
   // =========================================================================
-  // 7. Modal Registration Dialog
+  // 8. Modal Registration Dialog
   // =========================================================================
   const registerModal = document.getElementById('register-modal');
   const openModalBtns = [
@@ -316,7 +407,6 @@ Architecture Blueprint:
       registerModal.classList.add('open');
       registerModal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      // Reset form view
       if (cohortForm) cohortForm.style.display = 'flex';
       if (modalSuccess) modalSuccess.style.display = 'none';
     }
@@ -335,24 +425,19 @@ Architecture Blueprint:
   cancelModalBtn?.addEventListener('click', closeModal);
   successDoneBtn?.addEventListener('click', closeModal);
 
-  // Close on outside click
   registerModal?.addEventListener('click', (e) => {
     if (e.target === registerModal) closeModal();
   });
 
-  // Close on ESC key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && registerModal?.classList.contains('open')) {
       closeModal();
     }
   });
 
-  // Form submission
   cohortForm?.addEventListener('submit', (e) => {
     e.preventDefault();
     const schoolName = document.getElementById('school-name')?.value || 'School';
-    
-    // Simulate processing
     cohortForm.style.display = 'none';
     if (modalSuccess) {
       modalSuccess.style.display = 'block';
@@ -360,7 +445,6 @@ Architecture Blueprint:
     showToast(`Application submitted for ${schoolName}!`);
   });
 
-  // Partner inquiry trigger
   const partnerInquiryBtn = document.getElementById('partner-inquiry-btn');
   partnerInquiryBtn?.addEventListener('click', () => {
     openModal();
@@ -368,24 +452,6 @@ Architecture Blueprint:
     if (notesField) {
       notesField.value = "Corporate / Non-Profit Partnership Inquiry: Interested in co-hosting regional summits and curriculum integration.";
     }
-  });
-
-  // =========================================================================
-  // 8. PDF Download & Print Triggers
-  // =========================================================================
-  const pdfTriggers = [
-    document.getElementById('hero-download-pdf-btn'),
-    document.getElementById('footer-print-btn')
-  ].filter(Boolean);
-
-  pdfTriggers.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      showToast("Opening executive document print/PDF view...");
-      setTimeout(() => {
-        window.print();
-      }, 300);
-    });
   });
 
   // =========================================================================
@@ -431,4 +497,3 @@ Architecture Blueprint:
   }
 
 });
-

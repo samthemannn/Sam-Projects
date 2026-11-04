@@ -44,7 +44,7 @@
   --bg-tertiary: #191c22;
   --bg-card: rgba(22, 25, 32, 0.78);
   --bg-card-hover: rgba(28, 33, 42, 0.92);
-  --bg-glass: rgba(12, 14, 18, 0.78);
+  --bg-glass: rgba(12, 14, 18, 0.82);
 
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-hover: rgba(255, 255, 255, 0.18);
@@ -194,12 +194,15 @@ img, svg {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 24px;
+  position: relative;
 }
 
 .brand-container {
   display: flex;
   align-items: center;
   gap: 12px;
+  position: relative;
+  z-index: 2;
 }
 
 .google-logo {
@@ -223,65 +226,115 @@ img, svg {
 .brand-badge {
   font-size: 0.72rem;
   font-weight: 600;
-  padding: 2px 8px;
+  padding: 3px 9px;
   border-radius: var(--radius-pill);
   background: var(--google-blue-subtle);
   color: var(--google-blue);
-  border: 1px solid rgba(26, 115, 232, 0.25);
+  border: 1.5px solid rgba(26, 115, 232, 0.35);
+  transition: all var(--transition-normal);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fluid Motion Sliding Nav Indicator (Requirement 4) */
+.nav-links-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-slider-pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 32px;
+  width: 80px;
+  background: rgba(26, 115, 232, 0.16);
+  border: 1.5px solid var(--google-blue);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 0 14px rgba(26, 115, 232, 0.32);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.25s ease;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
 }
 
 .nav-link {
   font-size: 0.86rem;
   font-weight: 500;
   color: var(--text-secondary);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
   transition: color var(--transition-fast);
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
   color: var(--text-primary);
 }
 
-.nav-link:hover::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: var(--google-blue);
-  border-radius: 2px;
+.nav-link.active {
+  color: var(--google-blue);
+  font-weight: 600;
 }
 
 .nav-actions {
   display: flex;
   align-items: center;
   gap: 12px;
+  position: relative;
+  z-index: 2;
 }
 
-.btn-icon {
+/* ==========================================================================
+   Floating Theme Switcher Widget (Requirement 5)
+   ========================================================================== */
+.floating-theme-toggle {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 990;
+}
+
+.floating-theme-btn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
+  gap: 8px;
+  padding: 10px 18px;
   border-radius: var(--radius-pill);
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  font-size: 0.85rem;
+  font-weight: 600;
   transition: all var(--transition-fast);
 }
 
-.btn-icon:hover {
-  color: var(--text-primary);
-  border-color: var(--border-hover);
-  transform: translateY(-1px);
+.floating-theme-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--google-blue);
+  box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
+}
+
+.floating-theme-btn .theme-text {
+  font-size: 0.82rem;
 }
 
 [data-theme="dark"] .icon-sun { display: block; }
@@ -744,7 +797,7 @@ img, svg {
 .bar-green { background: var(--google-green); }
 
 /* ==========================================================================
-   Shared Paper Embed Section Style (Integrates parts of the paper)
+   Paper Embed Section Style
    ========================================================================== */
 .paper-embed-section {
   padding: 80px 0;
@@ -865,7 +918,7 @@ img, svg {
 
 .sp-icon { font-size: 1.3rem; }
 
-/* Origins & Core Thesis (Section 3 of Paper) */
+/* Origins & Core Thesis */
 .origins-story-layout {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
@@ -958,7 +1011,7 @@ img, svg {
   line-height: 1.4;
 }
 
-/* Coalition Bento Grid (Section 5 of Paper) */
+/* Coalition Bento Grid */
 .coalition-bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1043,7 +1096,7 @@ img, svg {
   line-height: 1.5;
 }
 
-/* Strategic Impact Grid (Section 6 of Paper) */
+/* Strategic Impact Grid */
 .impact-pillars-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1102,7 +1155,7 @@ img, svg {
   width: fit-content;
 }
 
-/* Works Cited Grid (Section 8 of Paper) */
+/* Works Cited Grid */
 .citations-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -2525,6 +2578,8 @@ img, svg {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  width: 100%;
+  min-width: 0;
 }
 
 .form-group label {
@@ -2541,7 +2596,16 @@ img, svg {
   font-family: var(--font-sans);
   font-size: 0.9rem;
   color: var(--text-primary);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
   transition: border-color var(--transition-fast);
+}
+
+.form-group select {
+  cursor: pointer;
 }
 
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
@@ -2591,7 +2655,7 @@ img, svg {
 /* Toast Notifications */
 .toast-container {
   position: fixed;
-  bottom: 24px;
+  bottom: 84px;
   right: 24px;
   z-index: 1000;
   display: flex;
@@ -2638,7 +2702,7 @@ img, svg {
 }
 
 @media (max-width: 768px) {
-  .nav-links { display: none; }
+  .nav-links-wrapper { display: none; }
   .nav-paper-btn { display: none; }
   .split-grid-container { grid-template-columns: 1fr; }
   .stepper-nav { grid-template-columns: repeat(2, 1fr); }
@@ -2658,7 +2722,7 @@ img, svg {
 @media print {
   .navbar-wrapper, .ambient-glow, .btn-icon, .hero-cta-group,
   .split-toggle-bar, .stepper-controls, .interactive-lab-section,
-  .modal-backdrop, .toast-container, .paper-floating-toolbar {
+  .modal-backdrop, .toast-container, .paper-floating-toolbar, .floating-theme-toggle {
     display: none !important;
   }
 
