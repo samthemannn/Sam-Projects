@@ -84,11 +84,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const handleScrollNav = () => {
     const scrollPos = window.scrollY + 140;
 
-    // If near the top (hero), hide or move to the first link or brand badge
-    if (window.scrollY < 200) {
+    // Toggle .is-scrolled class to remove any residual styling on brand badge
+    if (window.scrollY >= 100) {
+      document.body.classList.add('is-scrolled');
+    } else {
+      document.body.classList.remove('is-scrolled');
+    }
+
+    // If near the top (hero), indicator sits around brand badge "White Paper"
+    if (window.scrollY < 120) {
       navLinks.forEach(l => l.classList.remove('active'));
       if (brandBadge && sliderPill && navWrapper) {
-        // Fluid transition around brand badge or gracefully dim
+        // Fluid transition around brand badge at the top
         const badgeRect = brandBadge.getBoundingClientRect();
         const wrapperRect = navWrapper.getBoundingClientRect();
         const leftOffset = badgeRect.left - wrapperRect.left;
@@ -118,7 +125,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    if (!activeFound && navLinks.length > 0 && window.scrollY >= 200) {
+    // When scrolled down to Summary, cleanly slide blue indicator over Summary
+    if (!activeFound && navLinks.length > 0 && window.scrollY >= 120) {
+      navLinks.forEach(l => l.classList.remove('active'));
       navLinks[0].classList.add('active');
       updateNavIndicator(navLinks[0]);
     }

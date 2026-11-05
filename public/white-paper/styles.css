@@ -197,44 +197,86 @@ img, svg {
   position: relative;
 }
 
+/* Google Brand Colors */
+.g-blue { color: #4285F4; }
+.g-red { color: #EA4335; }
+.g-yellow { color: #FBBC04; }
+.g-green { color: #34A853; }
+
+[data-theme="light"] .g-blue { color: #1A73E8; }
+[data-theme="light"] .g-red { color: #D93025; }
+[data-theme="light"] .g-yellow { color: #B06000; }
+[data-theme="light"] .g-green { color: #188038; }
+
 .brand-container {
-  display: flex;
+  display: inline-flex;
+  flex-direction: row;
   align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
   gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
   position: relative;
   z-index: 2;
 }
 
-.google-logo {
-  height: 22px;
-  width: auto;
-}
-
-.brand-text {
-  display: flex;
+.brand-google-mtg {
+  display: inline-flex;
+  flex-direction: row;
   align-items: center;
-  gap: 8px;
-}
-
-.brand-title {
-  font-size: 1.05rem;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: 7px;
+  font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
+  line-height: 1;
+}
+
+.brand-google-word {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+}
+
+.brand-mtg-words {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  gap: 4px;
+  font-weight: 600;
 }
 
 .brand-badge {
   font-size: 0.72rem;
   font-weight: 600;
-  padding: 3px 9px;
+  padding: 4px 10px;
   border-radius: var(--radius-pill);
   background: var(--google-blue-subtle);
   color: var(--google-blue);
-  border: 1.5px solid rgba(26, 115, 232, 0.35);
+  border: none;
+  outline: none;
+  box-shadow: none;
   transition: all var(--transition-normal);
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Ensure no persistent circle around White Paper when scrolled */
+.is-scrolled #brand-badge {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
 }
 
 /* Fluid Motion Sliding Nav Indicator (Requirement 4) */

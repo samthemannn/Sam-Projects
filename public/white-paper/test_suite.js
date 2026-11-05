@@ -160,3 +160,60 @@ test('Requirement 8: Mind the Gap portal links to https://sites.research.google/
   assert.ok(whitepaperHtml.includes(targetUrl), 'whitepaper.html must link to https://sites.research.google/gr/mindthegap/');
 });
 
+test('Requirement 9: Navbar brand says "Google Mind the Gap" in 4 Google colors on one horizontal line', () => {
+  const indexHtml = fs.readFileSync(indexPath, 'utf8');
+  const stylesCss = fs.readFileSync(stylesPath, 'utf8');
+  
+  // 9a. Brand container must contain "Google Mind the Gap"
+  const brandContainerMatch = indexHtml.match(/<a[^>]*id=["']nav-brand-container["'][^>]*>([\s\S]*?)<\/a>/i);
+  assert.ok(brandContainerMatch, 'nav-brand-container must exist');
+  
+  const brandText = brandContainerMatch[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  assert.ok(
+    brandText.includes('Google Mind the Gap'),
+    `Brand text must include "Google Mind the Gap", got "${brandText}"`
+  );
+  
+  // 9b. Must feature Google colors (#4285F4, #EA4335, #FBBC04, #34A853)
+  assert.ok(
+    indexHtml.includes('g-blue') || indexHtml.includes('#4285F4') || indexHtml.includes('--google-blue'),
+    'Must incorporate Google blue'
+  );
+  assert.ok(
+    indexHtml.includes('g-red') || indexHtml.includes('#EA4335') || indexHtml.includes('--google-red'),
+    'Must incorporate Google red'
+  );
+  assert.ok(
+    indexHtml.includes('g-yellow') || indexHtml.includes('#FBBC04') || indexHtml.includes('--google-yellow'),
+    'Must incorporate Google yellow'
+  );
+  assert.ok(
+    indexHtml.includes('g-green') || indexHtml.includes('#34A853') || indexHtml.includes('--google-green'),
+    'Must incorporate Google green'
+  );
+  
+  // 9c. Brand styling must enforce a single horizontal line (nowrap, flex-direction row)
+  assert.ok(
+    stylesCss.includes('white-space: nowrap') && (stylesCss.includes('.brand-container') || stylesCss.includes('.brand-google-mtg')),
+    'Brand CSS must enforce white-space: nowrap to prevent vertical wrapping'
+  );
+});
+
+test('Requirement 10: No circle around White Paper when scrolled down to Summary', () => {
+  const stylesCss = fs.readFileSync(stylesPath, 'utf8');
+  const appJs = fs.readFileSync(appJsPath, 'utf8');
+  
+  // 10a. .brand-badge should NOT have a persistent border that looks like a permanent circle
+  assert.ok(
+    !stylesCss.includes('border: 1.5px solid rgba(26, 115, 232, 0.35)'),
+    '.brand-badge must not have a static border creating a permanent circle around White Paper'
+  );
+
+  // 10b. app.js handles active state on scroll to summary
+  assert.ok(
+    appJs.includes('Summary') || appJs.includes('sec-executive-summary'),
+    'app.js must transition slider pill to Summary upon scrolling'
+  );
+});
+
+
