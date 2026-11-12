@@ -1,0 +1,3 @@
+# Gemini Security and Testing Contract
+Enforce authentication and ownership for ratings, reviews, comments, follows, and shelves. Validate inputs, encode output, protect secrets, and add safeguards against injection, XSS, CSRF where applicable, duplicate writes, and abusive write volume.
+Required tests include rating calculations, series aggregation, authorization, import deduplication, required seed titles, recommendation explanations, spoiler reveal behavior, and an end-to-end flow from registration through rating and recommendation. Every fixed defect should receive a regression test when practical.
