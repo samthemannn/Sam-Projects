@@ -1,0 +1,977 @@
+{
+  "version": "1.0.0",
+  "seriesCount": 25,
+  "standaloneBookCount": 25,
+  "ratingCategories": [
+    {
+      "id": "cat-plot",
+      "key": "plot",
+      "label": "Plot & Pacing"
+    },
+    {
+      "id": "cat-characters",
+      "key": "characters",
+      "label": "Characters"
+    },
+    {
+      "id": "cat-worldbuilding",
+      "key": "worldbuilding",
+      "label": "Worldbuilding"
+    },
+    {
+      "id": "cat-writing",
+      "key": "writing",
+      "label": "Writing Style"
+    },
+    {
+      "id": "cat-emotional-impact",
+      "key": "emotional_impact",
+      "label": "Emotional Impact"
+    }
+  ],
+  "series": [
+    {
+      "id": "ser-01",
+      "title": "A Court of Thorns and Roses",
+      "author": "Sarah J. Maas",
+      "genres": [
+        "Fantasy",
+        "Romantasy"
+      ],
+      "books": [
+        {
+          "id": "bk-s01-1",
+          "title": "A Court of Thorns and Roses",
+          "number": 1,
+          "year": 2015,
+          "isbn13": "9781619634442",
+          "audiobook": {
+            "id": "ab-s01-1",
+            "narrator": "Jennifer Ikeda",
+            "durationMinutes": 967,
+            "sourceId": "audible:B00W47N7C4"
+          }
+        },
+        {
+          "id": "bk-s01-2",
+          "title": "A Court of Mist and Fury",
+          "number": 2,
+          "year": 2016,
+          "isbn13": "9781619634466",
+          "audiobook": {
+            "id": "ab-s01-2",
+            "narrator": "Jennifer Ikeda",
+            "durationMinutes": 1392,
+            "sourceId": "audible:B01F2MK16A"
+          }
+        },
+        {
+          "id": "bk-s01-3",
+          "title": "A Court of Wings and Ruin",
+          "number": 3,
+          "year": 2017,
+          "isbn13": "9781619634480",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-02",
+      "title": "Harry Potter",
+      "author": "J.K. Rowling",
+      "genres": [
+        "Fantasy",
+        "Young Adult"
+      ],
+      "books": [
+        {
+          "id": "bk-s02-1",
+          "title": "Harry Potter and the Sorcerer's Stone",
+          "number": 1,
+          "year": 1997,
+          "isbn13": "9780590353427",
+          "audiobook": {
+            "id": "ab-s02-1",
+            "narrator": "Jim Dale",
+            "durationMinutes": 498,
+            "sourceId": "audible:B017V4IM1G"
+          }
+        },
+        {
+          "id": "bk-s02-2",
+          "title": "Harry Potter and the Prisoner of Azkaban",
+          "number": 3,
+          "year": 1999,
+          "isbn13": "9780439136365",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-03",
+      "title": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "genres": [
+        "Fantasy",
+        "Classics"
+      ],
+      "books": [
+        {
+          "id": "bk-s03-1",
+          "title": "The Fellowship of the Ring",
+          "number": 1,
+          "year": 1954,
+          "isbn13": "9780547928210",
+          "audiobook": {
+            "id": "ab-s03-1",
+            "narrator": "Andy Serkis",
+            "durationMinutes": 1358,
+            "sourceId": "audible:B09F1B69bd"
+          }
+        },
+        {
+          "id": "bk-s03-2",
+          "title": "The Two Towers",
+          "number": 2,
+          "year": 1954,
+          "isbn13": "9780547928203",
+          "audiobook": null
+        },
+        {
+          "id": "bk-s03-3",
+          "title": "The Return of the King",
+          "number": 3,
+          "year": 1955,
+          "isbn13": "9780547928197",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-04",
+      "title": "Mistborn",
+      "author": "Brandon Sanderson",
+      "genres": [
+        "Fantasy",
+        "Epic Fantasy"
+      ],
+      "books": [
+        {
+          "id": "bk-s04-1",
+          "title": "Mistborn: The Final Empire",
+          "number": 1,
+          "year": 2006,
+          "isbn13": "9780765311788",
+          "audiobook": {
+            "id": "ab-s04-1",
+            "narrator": "Michael Kramer",
+            "durationMinutes": 1479,
+            "sourceId": "audible:B002V0QCYU"
+          }
+        },
+        {
+          "id": "bk-s04-2",
+          "title": "The Well of Ascension",
+          "number": 2,
+          "year": 2007,
+          "isbn13": "9780765316882",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-05",
+      "title": "Dungeon Crawler Carl",
+      "author": "Matt Dinniman",
+      "genres": [
+        "Sci-Fi",
+        "LitRPG",
+        "Fantasy"
+      ],
+      "books": [
+        {
+          "id": "bk-s05-1",
+          "title": "Dungeon Crawler Carl",
+          "number": 1,
+          "year": 2020,
+          "isbn13": "9798688591507",
+          "audiobook": {
+            "id": "ab-s05-1",
+            "narrator": "Jeff Hays",
+            "durationMinutes": 811,
+            "sourceId": "audible:B08V8B2CGV"
+          }
+        },
+        {
+          "id": "bk-s05-2",
+          "title": "Carl's Doomsday Scenario",
+          "number": 2,
+          "year": 2021,
+          "isbn13": "9798588333764",
+          "audiobook": {
+            "id": "ab-s05-2",
+            "narrator": "Jeff Hays",
+            "durationMinutes": 682,
+            "sourceId": "audible:B09362269C"
+          }
+        },
+        {
+          "id": "bk-s05-3",
+          "title": "The Dungeon Anarchist's Cookbook",
+          "number": 3,
+          "year": 2021,
+          "isbn13": "9798505509128",
+          "audiobook": {
+            "id": "ab-s05-3",
+            "narrator": "Jeff Hays",
+            "durationMinutes": 1004,
+            "sourceId": "audible:B09C2K7Y4S"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ser-06",
+      "title": "Bridgerton",
+      "author": "Julia Quinn",
+      "genres": [
+        "Romance",
+        "Historical Fiction"
+      ],
+      "books": [
+        {
+          "id": "bk-s06-1",
+          "title": "The Duke and I",
+          "number": 1,
+          "year": 2000,
+          "isbn13": "9780062353597",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-07",
+      "title": "Outlander",
+      "author": "Diana Gabaldon",
+      "genres": [
+        "Historical Fiction",
+        "Romance",
+        "Fantasy"
+      ],
+      "books": [
+        {
+          "id": "bk-s07-1",
+          "title": "Outlander",
+          "number": 1,
+          "year": 1991,
+          "isbn13": "9780440212560",
+          "audiobook": {
+            "id": "ab-s07-1",
+            "narrator": "Davina Porter",
+            "durationMinutes": 1958,
+            "sourceId": "audible:B002V1CJ8W"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ser-08",
+      "title": "The Twisted Series",
+      "author": "Ana Huang",
+      "genres": [
+        "Romance",
+        "Contemporary"
+      ],
+      "books": [
+        {
+          "id": "bk-s08-1",
+          "title": "Twisted Love",
+          "number": 1,
+          "year": 2021,
+          "isbn13": "9781728274867",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-09",
+      "title": "Chestnut Springs",
+      "author": "Elsie Silver",
+      "genres": [
+        "Romance",
+        "Contemporary"
+      ],
+      "books": [
+        {
+          "id": "bk-s09-1",
+          "title": "Flawless",
+          "number": 1,
+          "year": 2022,
+          "isbn13": "9781728296173",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-10",
+      "title": "Off-Campus",
+      "author": "Elle Kennedy",
+      "genres": [
+        "Romance",
+        "Contemporary"
+      ],
+      "books": [
+        {
+          "id": "bk-s10-1",
+          "title": "The Deal",
+          "number": 1,
+          "year": 2015,
+          "isbn13": "9781775293934",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-11",
+      "title": "The Millennium Series",
+      "author": "Stieg Larsson",
+      "genres": [
+        "Mystery",
+        "Thriller"
+      ],
+      "books": [
+        {
+          "id": "bk-s11-1",
+          "title": "The Girl with the Dragon Tattoo",
+          "number": 1,
+          "year": 2005,
+          "isbn13": "9780307454546",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-12",
+      "title": "The Harry Hole Series",
+      "author": "Jo Nesb\u00f8",
+      "genres": [
+        "Mystery",
+        "Thriller",
+        "Crime"
+      ],
+      "books": [
+        {
+          "id": "bk-s12-1",
+          "title": "The Snowman",
+          "number": 7,
+          "year": 2007,
+          "isbn13": "9780307950291",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-13",
+      "title": "The Dublin Murder Squad",
+      "author": "Tana French",
+      "genres": [
+        "Mystery",
+        "Crime",
+        "Thriller"
+      ],
+      "books": [
+        {
+          "id": "bk-s13-1",
+          "title": "In the Woods",
+          "number": 1,
+          "year": 2007,
+          "isbn13": "9780143113492",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-14",
+      "title": "The Lincoln Lawyer Series",
+      "author": "Michael Connelly",
+      "genres": [
+        "Mystery",
+        "Thriller",
+        "Legal Thriller"
+      ],
+      "books": [
+        {
+          "id": "bk-s14-1",
+          "title": "The Lincoln Lawyer",
+          "number": 1,
+          "year": 2005,
+          "isbn13": "9780446616454",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-15",
+      "title": "The Thursday Murder Club",
+      "author": "Richard Osman",
+      "genres": [
+        "Mystery",
+        "Crime"
+      ],
+      "books": [
+        {
+          "id": "bk-s15-1",
+          "title": "The Thursday Murder Club",
+          "number": 1,
+          "year": 2020,
+          "isbn13": "9781984880987",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-16",
+      "title": "The Hunger Games",
+      "author": "Suzanne Collins",
+      "genres": [
+        "Sci-Fi",
+        "Dystopian",
+        "Young Adult"
+      ],
+      "books": [
+        {
+          "id": "bk-s16-1",
+          "title": "The Hunger Games",
+          "number": 1,
+          "year": 2008,
+          "isbn13": "9780439023481",
+          "audiobook": {
+            "id": "ab-s16-1",
+            "narrator": "Tatiana Maslany",
+            "durationMinutes": 674,
+            "sourceId": "audible:B07HHJ7669"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ser-17",
+      "title": "Red Rising",
+      "author": "Pierce Brown",
+      "genres": [
+        "Sci-Fi",
+        "Dystopian"
+      ],
+      "books": [
+        {
+          "id": "bk-s17-1",
+          "title": "Red Rising",
+          "number": 1,
+          "year": 2014,
+          "isbn13": "9780345539786",
+          "audiobook": {
+            "id": "ab-s17-1",
+            "narrator": "Tim Gerard Reynolds",
+            "durationMinutes": 972,
+            "sourceId": "audible:B00I2V5DCU"
+          }
+        },
+        {
+          "id": "bk-s17-2",
+          "title": "Golden Son",
+          "number": 2,
+          "year": 2015,
+          "isbn13": "9780345539816",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-18",
+      "title": "The Expanse",
+      "author": "James S.A. Corey",
+      "genres": [
+        "Sci-Fi",
+        "Space Opera"
+      ],
+      "books": [
+        {
+          "id": "bk-s18-1",
+          "title": "Leviathan Wakes",
+          "number": 1,
+          "year": 2011,
+          "isbn13": "9780316129084",
+          "audiobook": {
+            "id": "ab-s18-1",
+            "narrator": "Jefferson Mays",
+            "durationMinutes": 1192,
+            "sourceId": "audible:B073H9PF2D"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ser-19",
+      "title": "Dune",
+      "author": "Frank Herbert",
+      "genres": [
+        "Sci-Fi",
+        "Classics"
+      ],
+      "books": [
+        {
+          "id": "bk-s19-1",
+          "title": "Dune",
+          "number": 1,
+          "year": 1965,
+          "isbn13": "9780441172719",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-20",
+      "title": "The Murderbot Diaries",
+      "author": "Martha Wells",
+      "genres": [
+        "Sci-Fi",
+        "Space Opera"
+      ],
+      "books": [
+        {
+          "id": "bk-s20-1",
+          "title": "All Systems Red",
+          "number": 1,
+          "year": 2017,
+          "isbn13": "9780765397539",
+          "audiobook": {
+            "id": "ab-s20-1",
+            "narrator": "Kevin R. Free",
+            "durationMinutes": 197,
+            "sourceId": "audible:B076XSGP65"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ser-21",
+      "title": "The Kingsbridge Series",
+      "author": "Ken Follett",
+      "genres": [
+        "Historical Fiction"
+      ],
+      "books": [
+        {
+          "id": "bk-s21-1",
+          "title": "The Pillars of the Earth",
+          "number": 1,
+          "year": 1989,
+          "isbn13": "9780451166890",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-22",
+      "title": "The Wolf Hall Trilogy",
+      "author": "Hilary Mantel",
+      "genres": [
+        "Historical Fiction",
+        "Literary Fiction"
+      ],
+      "books": [
+        {
+          "id": "bk-s22-1",
+          "title": "Wolf Hall",
+          "number": 1,
+          "year": 2009,
+          "isbn13": "9780805080681",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-23",
+      "title": "The Poldark Series",
+      "author": "Winston Graham",
+      "genres": [
+        "Historical Fiction",
+        "Romance"
+      ],
+      "books": [
+        {
+          "id": "bk-s23-1",
+          "title": "Ross Poldark",
+          "number": 1,
+          "year": 1945,
+          "isbn13": "9781407234472",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-24",
+      "title": "The Shardlake Series",
+      "author": "C.J. Sansom",
+      "genres": [
+        "Historical Fiction",
+        "Mystery"
+      ],
+      "books": [
+        {
+          "id": "bk-s24-1",
+          "title": "Dissolution",
+          "number": 1,
+          "year": 2003,
+          "isbn13": "9780142004272",
+          "audiobook": null
+        }
+      ]
+    },
+    {
+      "id": "ser-25",
+      "title": "The Maisie Dobbs Series",
+      "author": "Jacqueline Winspear",
+      "genres": [
+        "Historical Fiction",
+        "Mystery"
+      ],
+      "books": [
+        {
+          "id": "bk-s25-1",
+          "title": "Maisie Dobbs",
+          "number": 1,
+          "year": 2003,
+          "isbn13": "9781569473306",
+          "audiobook": null
+        }
+      ]
+    }
+  ],
+  "standaloneBooks": [
+    {
+      "id": "bk-st-01",
+      "title": "The Night Circus",
+      "author": "Erin Morgenstern",
+      "year": 2011,
+      "isbn13": "9780385534635",
+      "genres": [
+        "Fantasy",
+        "Romance",
+        "Historical Fiction"
+      ],
+      "audiobook": {
+        "id": "ab-st-01",
+        "narrator": "Jim Dale",
+        "durationMinutes": 811,
+        "sourceId": "audible:B005L1ZKL2"
+      }
+    },
+    {
+      "id": "bk-st-02",
+      "title": "Piranesi",
+      "author": "Susanna Clarke",
+      "year": 2020,
+      "isbn13": "9781635575637",
+      "genres": [
+        "Fantasy",
+        "Mystery",
+        "Literary Fiction"
+      ],
+      "audiobook": {
+        "id": "ab-st-02",
+        "narrator": "Chiwetel Ejiofor",
+        "durationMinutes": 418,
+        "sourceId": "audible:B086PRL24M"
+      }
+    },
+    {
+      "id": "bk-st-03",
+      "title": "Circe",
+      "author": "Madeline Miller",
+      "year": 2018,
+      "isbn13": "9780316556347",
+      "genres": [
+        "Fantasy",
+        "Historical Fiction",
+        "Mythology"
+      ],
+      "audiobook": {
+        "id": "ab-st-03",
+        "narrator": "Perdita Weeks",
+        "durationMinutes": 728,
+        "sourceId": "audible:B0794BXZBF"
+      }
+    },
+    {
+      "id": "bk-st-04",
+      "title": "The Invisible Life of Addie LaRue",
+      "author": "V.E. Schwab",
+      "year": 2020,
+      "isbn13": "9780765387561",
+      "genres": [
+        "Fantasy",
+        "Romance",
+        "Historical Fiction"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-05",
+      "title": "The Priory of the Orange Tree",
+      "author": "Samantha Shannon",
+      "year": 2019,
+      "isbn13": "9781635570298",
+      "genres": [
+        "Fantasy",
+        "Epic Fantasy"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-06",
+      "title": "The Love Hypothesis",
+      "author": "Ali Hazelwood",
+      "year": 2021,
+      "isbn13": "9780593336823",
+      "genres": [
+        "Romance",
+        "Contemporary"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-07",
+      "title": "Beach Read",
+      "author": "Emily Henry",
+      "year": 2020,
+      "isbn13": "9781984806734",
+      "genres": [
+        "Romance",
+        "Contemporary"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-08",
+      "title": "Book Lovers",
+      "author": "Emily Henry",
+      "year": 2022,
+      "isbn13": "9780593334836",
+      "genres": [
+        "Romance",
+        "Contemporary"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-09",
+      "title": "Red, White & Royal Blue",
+      "author": "Casey McQuiston",
+      "year": 2019,
+      "isbn13": "9781250316776",
+      "genres": [
+        "Romance",
+        "Contemporary"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-10",
+      "title": "The Notebook",
+      "author": "Nicholas Sparks",
+      "year": 1996,
+      "isbn13": "9780446605236",
+      "genres": [
+        "Romance",
+        "Contemporary"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-11",
+      "title": "Gone Girl",
+      "author": "Gillian Flynn",
+      "year": 2012,
+      "isbn13": "9780307588371",
+      "genres": [
+        "Thriller",
+        "Mystery",
+        "Crime"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-12",
+      "title": "The Silent Patient",
+      "author": "Alex Michaelides",
+      "year": 2019,
+      "isbn13": "9781250301697",
+      "genres": [
+        "Thriller",
+        "Mystery"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-13",
+      "title": "The Girl on the Train",
+      "author": "Paula Hawkins",
+      "year": 2015,
+      "isbn13": "9781594634024",
+      "genres": [
+        "Thriller",
+        "Mystery"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-14",
+      "title": "The Guest List",
+      "author": "Lucy Foley",
+      "year": 2020,
+      "isbn13": "9780062868930",
+      "genres": [
+        "Mystery",
+        "Thriller"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-15",
+      "title": "The Woman in Cabin 10",
+      "author": "Ruth Ware",
+      "year": 2016,
+      "isbn13": "9781501132933",
+      "genres": [
+        "Mystery",
+        "Thriller"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-16",
+      "title": "Project Hail Mary",
+      "author": "Andy Weir",
+      "year": 2021,
+      "isbn13": "9780593135204",
+      "genres": [
+        "Sci-Fi",
+        "Space Opera"
+      ],
+      "audiobook": {
+        "id": "ab-st-16",
+        "narrator": "Ray Porter",
+        "durationMinutes": 970,
+        "sourceId": "audible:B08G9PRS1K"
+      }
+    },
+    {
+      "id": "bk-st-17",
+      "title": "The Martian",
+      "author": "Andy Weir",
+      "year": 2011,
+      "isbn13": "9780804139021",
+      "genres": [
+        "Sci-Fi"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-18",
+      "title": "Klara and the Sun",
+      "author": "Kazuo Ishiguro",
+      "year": 2021,
+      "isbn13": "9780593318171",
+      "genres": [
+        "Sci-Fi",
+        "Literary Fiction"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-19",
+      "title": "Station Eleven",
+      "author": "Emily St. John Mandel",
+      "year": 2014,
+      "isbn13": "9780385353304",
+      "genres": [
+        "Sci-Fi",
+        "Dystopian",
+        "Literary Fiction"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-20",
+      "title": "Recursion",
+      "author": "Blake Crouch",
+      "year": 2019,
+      "isbn13": "9781524759780",
+      "genres": [
+        "Sci-Fi",
+        "Thriller"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-21",
+      "title": "All the Light We Cannot See",
+      "author": "Anthony Doerr",
+      "year": 2014,
+      "isbn13": "9781501173219",
+      "genres": [
+        "Historical Fiction",
+        "Literary Fiction"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-22",
+      "title": "The Book Thief",
+      "author": "Markus Zusak",
+      "year": 2005,
+      "isbn13": "9780375842207",
+      "genres": [
+        "Historical Fiction",
+        "Young Adult"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-23",
+      "title": "Pachinko",
+      "author": "Min Jin Lee",
+      "year": 2017,
+      "isbn13": "9781455563937",
+      "genres": [
+        "Historical Fiction",
+        "Literary Fiction"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-24",
+      "title": "A Thousand Splendid Suns",
+      "author": "Khaled Hosseini",
+      "year": 2007,
+      "isbn13": "9781594489501",
+      "genres": [
+        "Historical Fiction",
+        "Literary Fiction"
+      ],
+      "audiobook": null
+    },
+    {
+      "id": "bk-st-25",
+      "title": "The Nightingale",
+      "author": "Kristin Hannah",
+      "year": 2015,
+      "isbn13": "9780312577223",
+      "genres": [
+        "Historical Fiction"
+      ],
+      "audiobook": null
+    }
+  ]
+}
