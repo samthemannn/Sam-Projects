@@ -1,0 +1,1 @@
+const search=document.querySelector('#search');search?.addEventListener('keydown',e=>{if(e.key==='Enter'&&search.value.trim()){alert('Search is ready for the API layer: '+search.value.trim())}});
